@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  face-attendance:
+    build: .
+    container_name: face-attendance-system
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./known_faces:/app/known_faces
+      - ./encodings:/app/encodings
+      - ./attendance:/app/attendance
+      - ./attendance.db:/app/attendance.db
+    restart: unless-stopped
